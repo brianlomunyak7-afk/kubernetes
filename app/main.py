@@ -2,15 +2,16 @@ import os
 import socket
 from fastapi import FastAPI
 
-app = FastAPi()
+app = FastAPI()
 
 @app.get("/")
 
 def home():
   return{
          "message":os.getenv("APP_MESSAGE", "Hello from kubernetes"),
-         "pod": socker.gethotsname()
+         "pod": socket.gethostname()
       }
+
 @app.get("/health")
-  def health():
-     return{"status":"ok"}
+def health():
+    return {"status": "ok"}
